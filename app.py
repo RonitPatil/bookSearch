@@ -9,7 +9,7 @@ CORS(app)
 
 @app.before_request
 def ignore_favicon():
-    if request.path == '/favicon.ico':
+    if request.path in ['/favicon.ico', '/favicon.png']:
         return '', 204
 
 
