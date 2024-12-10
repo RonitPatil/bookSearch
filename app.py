@@ -7,6 +7,12 @@ import os
 app = Flask(__name__, template_folder='templates', static_folder='static')
 CORS(app)
 
+@app.before_request
+def ignore_favicon():
+    if request.path == '/favicon.ico':
+        return '', 204
+
+
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 def fetch_books(search_query):
