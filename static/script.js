@@ -18,13 +18,9 @@ async function searchBooks() {
 
     queryInput.value = '';
 
-    const baseURL =
-        window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
-            ? 'http://127.0.0.1:8000'
-            : ''; //
 
     try {
-        const response = await fetch(`${baseURL}/search?q=${encodeURIComponent(query)}`);
+        const response = await fetch(`/search?q=${encodeURIComponent(query)}`);
         const data = await response.json();
 
         loadingDiv.style.display = 'none';
