@@ -20,7 +20,7 @@ async function searchBooks() {
 
 
     try {
-        const response = await fetch(`https://https://book-search-tau.vercel.app/search?q=${encodeURIComponent(query)}`);
+        const response = await fetch(`/search?q=${encodeURIComponent(query)}`);
         const data = await response.json();
 
         loadingDiv.style.display = 'none';
